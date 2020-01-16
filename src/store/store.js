@@ -1,8 +1,8 @@
 import {createStore} from "redux";
-import reducerAddToDoName from './reducers/reducerAddToDoName';
+import rootReducers from './reducers';
 
-const store = createStore(reducerAddToDoName);
+const store = createStore(rootReducers);
 
-store.subscribe(() => console.log('subscribe', store.getState()));
+//store.subscribe(() => console.log('subscribe', store.getState()));
 
 export default store;

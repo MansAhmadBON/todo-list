@@ -7,6 +7,7 @@ function Input(props) {
     return (
         <input
             onChange={e => handleChange(e)}
+            value={props.todoName}
         />
     )
 }
