@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c85229d6-b41a-4a2d-ba7d-3b989a5b0f51" name="Default Changelist" comment="" />
+    <list default="true" id="c85229d6-b41a-4a2d-ba7d-3b989a5b0f51" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1WTCz9ajBpkLM4UDdVR8W5PBlmN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -17,6 +22,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="ServiceViewManager">
@@ -42,6 +48,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579164457694</updated>
       <workItem from="1579164463531" duration="371000" />
+      <workItem from="1579164927068" duration="86000" />
     </task>
     <servers />
   </component>
