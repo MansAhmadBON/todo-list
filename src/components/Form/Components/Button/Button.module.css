@@ -1,0 +1,21 @@
+.btnNewTodo {
+    width: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 3px;
+    border: none;
+    background-color: #49BBEE;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.btnNewTodo:hover {
+    background-color: #3B7BEE;
+    color: #fff;
+}
+
+.btnNewTodo:active {
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './Button.module.css';
 
 function Button(props) {
 
@@ -16,7 +17,7 @@ function Button(props) {
 
 
     return (
-        <button onClick={addToDo}>Добавить задание:</button>
+        <button onClick={addToDo} className={styles.btnNewTodo}>Add ToDo</button>
     )
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './Input.module.css'
 
 function Input(props) {
     const handleChange = e => {
@@ -8,6 +9,7 @@ function Input(props) {
         <input
             onChange={e => handleChange(e)}
             value={props.todoName}
+            className={styles.todoNameInput}
         />
     )
 }

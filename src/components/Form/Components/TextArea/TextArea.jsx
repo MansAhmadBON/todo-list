@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './TextArea.module.css'
 
 function TextArea(props) {
     const handleChange = e => {
@@ -8,6 +9,7 @@ function TextArea(props) {
         <textarea
             onChange={e => handleChange(e)}
             value={props.todoDescr}
+            className={styles.ToDoDescrTextArea}
         />
     )
 }
