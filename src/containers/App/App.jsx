@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {actionAddCurrentToDoName, actionAddCurrentToDoDescr, actionAddNewTodo, actionClearInputDescr, actionClearInputName} from '../../store/actions';
-import {Form} from "../../components";
+import {Form, ActiveToDoList} from "../../components";
 
 class App extends Component {
     render() {
-        //console.log('todos:', this.props.todos)
+        console.log('activeTodos:', this.props.activeTodos);
         return (
             <div>
                 <Form
@@ -17,6 +17,9 @@ class App extends Component {
                     clearInputName={this.props.clearInputName}
                     clearInputDescr={this.props.clearInputDescr}
                 />
+                <ActiveToDoList
+                    activeTodos={this.props.activeTodos}
+                />
             </div>
         )
     }
@@ -26,7 +29,8 @@ const mapStateToProps = state => {
     return {
         todoName: state.newToDoData.addToDoName,
         todoDescr: state.newToDoData.addToDoDescr,
-        todos: state.stateToDos
+        todos: state.stateToDos,
+        activeTodos: state.stateToDos.activeToDo
     }
 };
 

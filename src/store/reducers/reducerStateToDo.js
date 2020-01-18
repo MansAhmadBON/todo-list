@@ -7,7 +7,7 @@ const initialState = {
 };
 
 function reducerStateToDo(state = initialState, action) {
-    console.log(action)
+    //console.log(action)
     if(action.type === ADD_NEW_TODO){
         return {
             ...state,
