@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {actionAddCurrentToDoName, actionAddCurrentToDoDescr, actionAddNewTodo, actionClearInputDescr, actionClearInputName, actionOpenModalWindow} from '../../store/actions';
-import {Form, ActiveToDoList} from "../../components";
+import {actionAddCurrentToDoName, actionAddCurrentToDoDescr, actionAddNewTodo, actionClearInputDescr, actionClearInputName, actionOpenModalWindow, actionToCloseModalWindow} from '../../store/actions';
+import {Form, ActiveToDoList, ModalWindow} from "../../components";
 
 class App extends Component {
     render() {
-        console.log('modalWindow:', this.props.modalWindow);
+        //console.log('modalWindowData:', this.props.activeTodos);
+        const idToDo = Number(this.props.modalWindow.id);
+        const modalWindowData = this.props.activeTodos.filter(elem => elem.id === idToDo);
         return (
             <div>
                 <Form
@@ -21,6 +23,9 @@ class App extends Component {
                     activeTodos={this.props.activeTodos}
                     openModalWindow={this.props.openModalWindow}
                 />
+                {
+                    this.props.modalWindow.status && <ModalWindow text={modalWindowData[0].descr} toCloseModalWindow={this.props.toCloseModalWindow}/>
+                }
             </div>
         )
     }
@@ -43,7 +48,8 @@ const mapDispatchToProps = dispatch => {
         addNewTodo: newToDo => dispatch(actionAddNewTodo(newToDo)),
         clearInputDescr: () => dispatch(actionClearInputDescr()),
         clearInputName: () => dispatch(actionClearInputName()),
-        openModalWindow: id => dispatch(actionOpenModalWindow(id))
+        openModalWindow: id => dispatch(actionOpenModalWindow(id)),
+        toCloseModalWindow: () => dispatch(actionToCloseModalWindow())
     }
 }
 
