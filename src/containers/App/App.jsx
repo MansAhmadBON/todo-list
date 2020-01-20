@@ -24,7 +24,7 @@ class App extends Component {
                     openModalWindow={this.props.openModalWindow}
                 />
                 {
-                    this.props.modalWindow.status && <ModalWindow text={modalWindowData[0].descr} toCloseModalWindow={this.props.toCloseModalWindow}/>
+                    this.props.modalWindow.status && <ModalWindow text={modalWindowData} toCloseModalWindow={this.props.toCloseModalWindow}/>
                 }
             </div>
         )
