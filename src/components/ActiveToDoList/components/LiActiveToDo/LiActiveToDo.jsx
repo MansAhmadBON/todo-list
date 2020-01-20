@@ -3,16 +3,19 @@ import styles from './LiActiveToDo.module.css';
 import {BtnDoneToDo, BtnEditToDo, BtnDeleteToDo} from './Component';
 
 function LiActiveToDo(props) {
-    const openModal = e => props.openModalWindow(e.target.id);
+    const openModal = e => props.openModalWindow(props.id);
+
     return (
-        <li id={props.id} className={styles.LiActiveToDo} onClick={e => openModal(e)}>
-            <span className={styles.activeToDoName}>{props.name}</span>
+        <div className={styles.wrapperLiActiveToDo}>
+            <li id={props.id} className={styles.LiActiveToDo} onClick={e => openModal(e)}>
+                <span className={styles.activeToDoName}>{props.name}</span>
+            </li>
             <div className={styles.ctrlsToDo}>
                 <BtnDoneToDo />
                 <BtnEditToDo />
                 <BtnDeleteToDo />
             </div>
-        </li>
+        </div>
     )
 }
 

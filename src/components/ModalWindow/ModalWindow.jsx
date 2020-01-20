@@ -4,10 +4,9 @@ import styles from './modalWindow.module.css'
 
 function ModalWindow(props) {
     if(props.text.length > 0){
-        const id = Date.now() + 5;
 
         const handleClicked = e => {
-            if(Number(e.target.id) === id){
+            if(e.target.className === styles.modalWindow){
                 props.toCloseModalWindow()
             } else {
                 return null
@@ -15,7 +14,7 @@ function ModalWindow(props) {
         };
 
         return (
-            <div className={styles.modalWindow} onClick={e => handleClicked(e)} id={id}>
+            <div className={styles.modalWindow} onClick={e => handleClicked(e)}>
                 <ModalWindowContent text={props.text[0].descr}/>
             </div>
         )
