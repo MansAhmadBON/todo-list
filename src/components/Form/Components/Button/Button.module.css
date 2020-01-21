@@ -16,6 +16,19 @@
     color: #fff;
 }
 
+.btnNewTodoDisabled {
+    width: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 3px;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    background-color: rgba(134, 135, 139, 1);
+    color: #fff;
+    cursor: default;
+}
+
 .btnNewTodo:active {
     box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 }
