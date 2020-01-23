@@ -7,7 +7,7 @@ function ActiveToDoList(props) {
         <ul className={styles.ActiveToDoList}>
             {
                 props.activeTodos.map(item => {
-                    return <LiActiveToDo key={item.id} name={item.name} id={item.id} openModalWindow={props.openModalWindow}/>
+                    return <LiActiveToDo key={item.id} name={item.name} id={item.id} openModalWindow={props.openModalWindow} toDoDone={props.toDoDone} editToDo={props.editToDo} deleteTodo={props.deleteTodo}/>
                 })
             }
         </ul>

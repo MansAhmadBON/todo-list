@@ -2,19 +2,24 @@ import React from "react";
 import styles from './LiActiveToDo.module.css';
 import {BtnDoneToDo, BtnEditToDo, BtnDeleteToDo} from './Component';
 
-function btnAction(str) {
+function btnAction(str, ...actions) {
     let classesArr = str.split(' ');
     let btnName = classesArr[0];
     let idTodo = classesArr[1];
+
+    let actionTodoDone = actions[0];
+    let actionTodoEdit = actions[1];
+    let actionTodoDel = actions[2];
+
     switch (btnName) {
         case 'taskDone':
-            console.log({type: 'TASK_DONE', payload: idTodo});
+            actionTodoDone(Number(idTodo));
             return;
         case 'editTask':
-            console.log({type: 'TASK_EDIT', payload: idTodo});
+            actionTodoEdit(Number(idTodo));
             return;
         case 'deleteTask':
-            console.log({type: 'TASK_DELATE', payload: idTodo});
+            actionTodoDel(Number(idTodo));
             return;
         default: return null;
     }
@@ -25,11 +30,11 @@ function LiActiveToDo(props) {
 
     const handleClicked = e => {
         if(e.target.className.baseVal){
-            btnAction(e.target.parentNode.className)
+            btnAction(e.target.parentNode.className, props.toDoDone, props.editToDo, props.deleteTodo)
         } else if(e.target.className.baseVal === '') {
-            btnAction(e.target.parentNode.parentNode.className)
+            btnAction(e.target.parentNode.parentNode.className, props.toDoDone, props.editToDo, props.deleteTodo)
         } else {
-            btnAction(e.target.className)
+            btnAction(e.target.className, props.toDoDone, props.editToDo, props.deleteTodo)
         }
 
     };
