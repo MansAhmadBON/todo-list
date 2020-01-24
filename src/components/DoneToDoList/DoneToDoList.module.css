@@ -1,0 +1,14 @@
+.DoneToDoList {
+    font-family: 'Raleway', sans-serif;
+    width: 500px;
+    border: 1px solid #000;
+    margin: 50px auto;
+}
+
+.titleSection {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 40px;
+    padding: 10px;
+    background-image: linear-gradient(to left, rgb(119, 247, 102), rgb(117, 237, 115), rgb(115, 226, 128), rgb(114, 216, 142), rgb(112, 206, 155), rgb(110, 195, 168), rgb(108, 185, 181), rgb(106, 174, 194), rgb(104, 164, 207), rgb(103, 154, 221), rgb(101, 143, 234), rgb(99, 133, 247));
+}

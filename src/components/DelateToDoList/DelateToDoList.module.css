@@ -1,0 +1,14 @@
+.DeleteToDoList {
+    font-family: 'Raleway', sans-serif;
+    width: 500px;
+    border: 1px solid #000;
+    margin: 50px auto;
+}
+
+.titleSection {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 40px;
+    padding: 10px;
+    background-image: linear-gradient(to left, rgb(255, 0, 30), rgb(240, 9, 50), rgb(224, 18, 70), rgb(209, 26, 91), rgb(194, 35, 111), rgb(178, 44, 131), rgb(163, 53, 151), rgb(147, 62, 171), rgb(132, 71, 191), rgb(117, 79, 212), rgb(101, 88, 232), rgb(86, 97, 252));
+}

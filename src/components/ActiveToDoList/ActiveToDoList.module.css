@@ -1,6 +1,14 @@
 .ActiveToDoList {
     font-family: 'Raleway', sans-serif;
     width: 500px;
-    height: 45px;
+    border: 1px solid #000;
     margin: 50px auto;
+}
+
+.titleSection {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 40px;
+    padding: 10px;
+    background-image: linear-gradient(to right, rgb(118, 185, 240), rgb(123, 180, 240), rgb(128, 174, 240), rgb(132, 169, 240), rgb(137, 163, 240), rgb(142, 158, 240), rgb(147, 152, 240), rgb(152, 147, 240), rgb(157, 141, 240), rgb(161, 136, 240), rgb(166, 130, 240), rgb(171, 125, 240));
 }
