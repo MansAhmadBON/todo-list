@@ -3,7 +3,7 @@ import {ModalWindowContent} from './components'
 import styles from './modalWindow.module.css'
 
 function ModalWindow(props) {
-    if(props.text.length > 0){
+    if(props.data.length > 0){
 
         const handleClicked = e => {
             if(e.target.className === styles.modalWindow){
@@ -15,7 +15,7 @@ function ModalWindow(props) {
 
         return (
             <div className={styles.modalWindow} onClick={e => handleClicked(e)}>
-                <ModalWindowContent text={props.text[0].descr}/>
+                <ModalWindowContent text={props.data[0].descr}/>
             </div>
         )
     } else {

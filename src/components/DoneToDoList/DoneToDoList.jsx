@@ -8,7 +8,7 @@ function DoneToDoList(props) {
         <ul>
             {
                 props.doneTodos.map(todo => {
-                    return <LiDoneToDoList key={todo.id} id={todo.id} name={todo.name}/>
+                    return <LiDoneToDoList key={todo.id} id={todo.id} name={todo.name} openModalWindow={props.openModalWindow}/>
                 })
             }
         </ul>

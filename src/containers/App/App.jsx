@@ -5,12 +5,27 @@ import {Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList} from ".
 
 class App extends Component {
     render() {
-        console.log('activeTodos:', this.props.activeTodos);
-        console.log('doneTodos:', this.props.doneTodos);
-        console.log('deleteTodos:', this.props.deleteTodos);
+        // console.log('activeTodos:', this.props.activeTodos);
+        // console.log('doneTodos:', this.props.doneTodos);
+        // console.log('deleteTodos:', this.props.deleteTodos);
 
         const idToDo = Number(this.props.modalWindow.id);
-        const modalWindowData = this.props.activeTodos.filter(elem => elem.id === idToDo);
+        const modalWindowData = [];
+
+        const activeTodoModalWindow = this.props.activeTodos.filter(elem => elem.id === idToDo);
+        const doneTodoModalWindow = this.props.doneTodos.filter(elem => elem.id === idToDo);
+        const delateTodoModalWindow = this.props.deleteTodos.filter(elem => elem.id === idToDo);
+
+        if(activeTodoModalWindow[0]){
+            modalWindowData.push(activeTodoModalWindow[0])
+        } else if(doneTodoModalWindow[0]){
+            modalWindowData.push(doneTodoModalWindow[0])
+        } else if(delateTodoModalWindow[0]){
+            modalWindowData.push(delateTodoModalWindow[0])
+        }
+
+        console.log('modalWindowData', modalWindowData);
+
         return (
             <div>
                 <Form
@@ -31,12 +46,14 @@ class App extends Component {
                 />
                 <DoneToDoList
                     doneTodos={this.props.doneTodos}
+                    openModalWindow={this.props.openModalWindow}
                 />
                 <DelateToDoList
                     deleteTodos={this.props.deleteTodos}
+                    openModalWindow={this.props.openModalWindow}
                 />
                 {
-                    this.props.modalWindow.status && <ModalWindow text={modalWindowData} toCloseModalWindow={this.props.toCloseModalWindow}/>
+                    this.props.modalWindow.status && <ModalWindow data={modalWindowData} toCloseModalWindow={this.props.toCloseModalWindow}/>
                 }
             </div>
         )
