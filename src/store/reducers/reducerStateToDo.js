@@ -1,4 +1,4 @@
-import {ADD_NEW_TODO, TODO_DONE, TODO_DELETE, TODO_EDIT} from '../../constants';
+import {ADD_NEW_TODO, TODO_DONE, TODO_DELETE, TODO_EDIT, REMOVE_TODO, RESTORE_TODO} from '../../constants';
 
 const initialState = {
     activeToDo: [],
@@ -46,6 +46,35 @@ function reducerStateToDo(state = initialState, action) {
                 activeToDo: todosActiveAfterDeleteTodo,
                 deletedToDo: [...state.deletedToDo, newDeleteTodo[0]]
             };
+        case REMOVE_TODO:
+            let doneToDosAfterRemove = state.doneToDo.filter(todo => {
+                return todo.id !== action.payload;
+            });
+
+            let deleteTodosAfterRemove = state.deletedToDo.filter(todo => {
+                return todo.id !== action.payload;
+            });
+
+            return {
+                ...state,
+                doneToDo: doneToDosAfterRemove,
+                deletedToDo: deleteTodosAfterRemove
+            };
+        case RESTORE_TODO:
+            const todoRestore = state.deletedToDo.filter(todo => {
+                return todo.id === action.payload;
+            });
+
+            const delateTodosAfterRestore = state.deletedToDo.filter(todo => {
+                return todo.id !== action.payload;
+            });
+
+            return {
+                ...state,
+                activeToDo: [...state.activeToDo, todoRestore[0]],
+                deletedToDo: delateTodosAfterRestore
+            };
+
         default: return state
     }
 }

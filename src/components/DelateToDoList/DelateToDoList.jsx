@@ -11,7 +11,7 @@ function DelateToDoList(props) {
             <ul>
                 {
                     props.deleteTodos.map(todo => {
-                        return <LiDeleteToDo key={todo.id} name={todo.name} id={todo.id} openModalWindow={props.openModalWindow}/>
+                        return <LiDeleteToDo key={todo.id} name={todo.name} id={todo.id} openModalWindow={props.openModalWindow} removeTodo={props.removeTodo} restoreTodo={props.restoreTodo}/>
                     })
                 }
             </ul>

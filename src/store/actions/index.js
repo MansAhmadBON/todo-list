@@ -8,6 +8,8 @@ import actionToCloseModalWindow from "./actionToCloseModalWindow";
 import actionToDoDone from './actionToDoDone';
 import actionEditToDo from './actionEditToDo';
 import actionDeleteTodo from './actionDeleteTodo';
+import actionRemoveTodo from "./actionRemoveTodo";
+import actionRestoreTodo from "./actionRestoreTodo";
 
 export {
     actionAddCurrentToDoName,
@@ -19,5 +21,7 @@ export {
     actionToCloseModalWindow,
     actionToDoDone,
     actionEditToDo,
-    actionDeleteTodo
+    actionDeleteTodo,
+    actionRemoveTodo,
+    actionRestoreTodo
 };

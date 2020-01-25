@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {actionAddCurrentToDoName, actionAddCurrentToDoDescr, actionAddNewTodo, actionClearInputDescr, actionClearInputName, actionOpenModalWindow, actionToCloseModalWindow, actionToDoDone, actionEditToDo, actionDeleteTodo} from '../../store/actions';
+import {actionAddCurrentToDoName, actionAddCurrentToDoDescr, actionAddNewTodo, actionClearInputDescr, actionClearInputName, actionOpenModalWindow, actionToCloseModalWindow, actionToDoDone, actionEditToDo, actionDeleteTodo, actionRemoveTodo, actionRestoreTodo} from '../../store/actions';
 import {Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList} from "../../components";
 
 class App extends Component {
@@ -24,8 +24,6 @@ class App extends Component {
             modalWindowData.push(delateTodoModalWindow[0])
         }
 
-        console.log('modalWindowData', modalWindowData);
-
         return (
             <div>
                 <Form
@@ -47,10 +45,13 @@ class App extends Component {
                 <DoneToDoList
                     doneTodos={this.props.doneTodos}
                     openModalWindow={this.props.openModalWindow}
+                    removeTodo={this.props.removeTodo}
                 />
                 <DelateToDoList
                     deleteTodos={this.props.deleteTodos}
                     openModalWindow={this.props.openModalWindow}
+                    removeTodo={this.props.removeTodo}
+                    restoreTodo={this.props.restoreTodo}
                 />
                 {
                     this.props.modalWindow.status && <ModalWindow data={modalWindowData} toCloseModalWindow={this.props.toCloseModalWindow}/>
@@ -83,9 +84,11 @@ const mapDispatchToProps = dispatch => {
         toCloseModalWindow: () => dispatch(actionToCloseModalWindow()),
         toDoDone: id => dispatch(actionToDoDone(id)),
         editToDo: id => dispatch(actionEditToDo(id)),
-        deleteTodo: id => dispatch(actionDeleteTodo(id))
+        deleteTodo: id => dispatch(actionDeleteTodo(id)),
+        removeTodo: id => dispatch(actionRemoveTodo(id)),
+        restoreTodo: id => dispatch(actionRestoreTodo(id))
     }
-}
+};
 
 export default connect(
     mapStateToProps,

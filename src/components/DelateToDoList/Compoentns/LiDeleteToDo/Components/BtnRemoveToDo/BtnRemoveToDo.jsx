@@ -4,8 +4,8 @@ import classNames from 'classnames';
 
 function BtnRemoveToDo(props) {
     return (
-        <button title="Remove Todo">
-            <RemoveIcon />
+        <button title="Remove Todo" className={classNames('removeTodo', props.idTodo)}>
+            <RemoveIcon className={classNames('removeTodo', props.idTodo)}/>
         </button>
     )
 }

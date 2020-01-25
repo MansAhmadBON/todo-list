@@ -11,7 +11,7 @@ function LiDoneToDoList(props) {
                 <span className={styles.doneToDoName}>{props.name}</span>
             </li>
             <div className={styles.ctrlsToDo}>
-                <BtnRemoveToDo />
+                <BtnRemoveToDo removeTodo={props.removeTodo} idTodo={props.id}/>
             </div>
         </div>
     )
