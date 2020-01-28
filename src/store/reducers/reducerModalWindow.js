@@ -6,7 +6,7 @@ const initialState = {
 };
 
 function reducerModalWindow(state = initialState, action){
-    console.log(action);
+    //console.log(action);
     if(action.type === OPEN_MODAL_WINDOW){
         return {
             id: action.payload,

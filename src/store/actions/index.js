@@ -6,10 +6,16 @@ import actionClearInputName from './actionClearInputDescr'
 import actionOpenModalWindow from "./actionOpenModalWindow";
 import actionToCloseModalWindow from "./actionToCloseModalWindow";
 import actionToDoDone from './actionToDoDone';
-import actionEditToDo from './actionEditToDo';
+import actionPreparationEditToDo from './actionPreparationEditToDo';
 import actionDeleteTodo from './actionDeleteTodo';
 import actionRemoveTodo from "./actionRemoveTodo";
 import actionRestoreTodo from "./actionRestoreTodo";
+import actionOpenEditForm from "./actionOpenEditForm";
+import actionAddEditTodoName from "./actionAddEditTodoName";
+import actionAddEditTodoDescr from "./actionAddEditTodoDescr";
+import actionSetEditTodo from "./actionSetEditTodo";
+import actionCloseEditForm from './actionCloseEditForm'
+
 
 export {
     actionAddCurrentToDoName,
@@ -20,8 +26,13 @@ export {
     actionOpenModalWindow,
     actionToCloseModalWindow,
     actionToDoDone,
-    actionEditToDo,
+    actionPreparationEditToDo,
     actionDeleteTodo,
     actionRemoveTodo,
-    actionRestoreTodo
+    actionRestoreTodo,
+    actionOpenEditForm,
+    actionAddEditTodoName,
+    actionAddEditTodoDescr,
+    actionSetEditTodo,
+    actionCloseEditForm
 };

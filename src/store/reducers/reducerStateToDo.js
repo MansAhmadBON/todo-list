@@ -1,4 +1,4 @@
-import {ADD_NEW_TODO, TODO_DONE, TODO_DELETE, TODO_EDIT, REMOVE_TODO, RESTORE_TODO} from '../../constants';
+import {ADD_NEW_TODO, TODO_DONE, TODO_DELETE, PREPARATION_FOR_EDIT_TODO, REMOVE_TODO, RESTORE_TODO, SET_EDIT_TODO} from '../../constants';
 
 const initialState = {
     activeToDo: [],
@@ -7,8 +7,6 @@ const initialState = {
 };
 
 function reducerStateToDo(state = initialState, action) {
-    //console.log(action);
-
     switch (action.type) {
         case ADD_NEW_TODO:
             return {
@@ -29,9 +27,28 @@ function reducerStateToDo(state = initialState, action) {
                 activeToDo: todosActive,
                 doneToDo: [...state.doneToDo, newDoneTodo[0]]
             };
-        case TODO_EDIT:
-            console.log('editToDo!!!!', action.payload);
-            return state;
+        case PREPARATION_FOR_EDIT_TODO:
+            const todosActiveAfterPreparation = state.activeToDo.filter(todo => {
+                return todo.id !== action.payload;
+            });
+
+            return {
+                ...state,
+                activeToDo: todosActiveAfterPreparation
+            };
+        case SET_EDIT_TODO:
+            const idTodoBeforeEdit = action.payload.id;
+            const modifiedToDo = action.payload;
+            const actTodos = state.activeToDo.filter(todo => {
+                return todo.id !== idTodoBeforeEdit;
+            });
+
+            actTodos.push(modifiedToDo);
+
+            return {
+                ...state,
+                activeToDo: actTodos
+            };
         case TODO_DELETE:
             let todosActiveAfterDeleteTodo = state.activeToDo.filter(todo => {
                 return todo.id !== action.payload;

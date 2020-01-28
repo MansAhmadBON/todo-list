@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {actionAddCurrentToDoName, actionAddCurrentToDoDescr, actionAddNewTodo, actionClearInputDescr, actionClearInputName, actionOpenModalWindow, actionToCloseModalWindow, actionToDoDone, actionEditToDo, actionDeleteTodo, actionRemoveTodo, actionRestoreTodo} from '../../store/actions';
+import {actionAddCurrentToDoName, actionAddEditTodoName, actionAddCurrentToDoDescr, actionAddEditTodoDescr, actionSetEditTodo, actionCloseEditForm, actionAddNewTodo, actionClearInputDescr, actionClearInputName, actionOpenModalWindow, actionToCloseModalWindow, actionToDoDone, actionPreparationEditToDo, actionDeleteTodo, actionRemoveTodo, actionRestoreTodo, actionOpenEditForm} from '../../store/actions';
 import {Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList, EditForm} from "../../components";
 
 class App extends Component {
     render() {
-        // console.log('activeTodos:', this.props.activeTodos);
-        // console.log('doneTodos:', this.props.doneTodos);
-        // console.log('deleteTodos:', this.props.deleteTodos);
+        //console.log('editedTodo:', this.props.editedTodo);
 
         const idToDo = Number(this.props.modalWindow.id);
         const modalWindowData = [];
@@ -39,8 +37,8 @@ class App extends Component {
                     activeTodos={this.props.activeTodos}
                     openModalWindow={this.props.openModalWindow}
                     toDoDone={this.props.toDoDone}
-                    editToDo={this.props.editToDo}
                     deleteTodo={this.props.deleteTodo}
+                    openEditForm={this.props.openEditForm}
                 />
                 <DoneToDoList
                     doneTodos={this.props.doneTodos}
@@ -53,9 +51,12 @@ class App extends Component {
                     removeTodo={this.props.removeTodo}
                     restoreTodo={this.props.restoreTodo}
                 />
-                <EditForm />
+
                 {
                     this.props.modalWindow.status && <ModalWindow data={modalWindowData} toCloseModalWindow={this.props.toCloseModalWindow}/>
+                }
+                {
+                    this.props.editFormStatus.status && <EditForm activeTodos={this.props.activeTodos} idTodo={this.props.editFormStatus.id} preparationForEditToDo={this.props.preparationForEditToDo} addEditTodoName={this.props.addEditTodoName} addEditTodoDescr={this.props.addEditTodoDescr} editedTodo={this.props.editedTodo} setEditTodo={this.props.setEditTodo} closeEditForm={this.props.closeEditForm}/>
                 }
             </div>
         )
@@ -70,7 +71,9 @@ const mapStateToProps = state => {
         activeTodos: state.stateToDos.activeToDo,
         doneTodos: state.stateToDos.doneToDo,
         deleteTodos: state.stateToDos.deletedToDo,
-        modalWindow: state.modalWindow
+        modalWindow: state.modalWindow,
+        editFormStatus: state.editFormStatus,
+        editedTodo: state.editedTodo
     }
 };
 
@@ -84,10 +87,15 @@ const mapDispatchToProps = dispatch => {
         openModalWindow: id => dispatch(actionOpenModalWindow(id)),
         toCloseModalWindow: () => dispatch(actionToCloseModalWindow()),
         toDoDone: id => dispatch(actionToDoDone(id)),
-        editToDo: id => dispatch(actionEditToDo(id)),
+        preparationForEditToDo: id => dispatch(actionPreparationEditToDo(id)),
         deleteTodo: id => dispatch(actionDeleteTodo(id)),
         removeTodo: id => dispatch(actionRemoveTodo(id)),
-        restoreTodo: id => dispatch(actionRestoreTodo(id))
+        restoreTodo: id => dispatch(actionRestoreTodo(id)),
+        openEditForm: (id) => dispatch(actionOpenEditForm(id)),
+        addEditTodoName: newValue => dispatch(actionAddEditTodoName(newValue)),
+        addEditTodoDescr: newValue => dispatch(actionAddEditTodoDescr(newValue)),
+        setEditTodo: todo => dispatch(actionSetEditTodo(todo)),
+        closeEditForm: () => dispatch(actionCloseEditForm())
     }
 };
 

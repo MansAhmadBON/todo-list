@@ -8,15 +8,16 @@ function btnAction(str, ...actions) {
     let idTodo = classesArr[1];
 
     let actionTodoDone = actions[0];
-    let actionTodoEdit = actions[1];
+    let actionOpenEditForm = actions[1];
     let actionTodoDel = actions[2];
+
 
     switch (btnName) {
         case 'taskDone':
             actionTodoDone(Number(idTodo));
             return;
         case 'editTask':
-            actionTodoEdit(Number(idTodo));
+            actionOpenEditForm(Number(idTodo));
             return;
         case 'deleteTask':
             actionTodoDel(Number(idTodo));
@@ -30,11 +31,11 @@ function LiActiveToDo(props) {
 
     const handleClicked = e => {
         if(e.target.className.baseVal){
-            btnAction(e.target.parentNode.className, props.toDoDone, props.editToDo, props.deleteTodo)
+            btnAction(e.target.parentNode.className, props.toDoDone, props.openEditForm, props.deleteTodo, props.preparationForEditToDo);
         } else if(e.target.className.baseVal === '') {
-            btnAction(e.target.parentNode.parentNode.className, props.toDoDone, props.editToDo, props.deleteTodo)
+            btnAction(e.target.parentNode.parentNode.className, props.toDoDone, props.openEditForm, props.deleteTodo, props.preparationForEditToDo);
         } else {
-            btnAction(e.target.className, props.toDoDone, props.editToDo, props.deleteTodo)
+            btnAction(e.target.className, props.toDoDone, props.openEditForm, props.deleteTodo, props.preparationForEditToDo);
         }
 
     };
