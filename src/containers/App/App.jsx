@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {actionAddCurrentToDoName, actionAddCurrentToDoDescr, actionAddNewTodo, actionClearInputDescr, actionClearInputName, actionOpenModalWindow, actionToCloseModalWindow, actionToDoDone, actionEditToDo, actionDeleteTodo, actionRemoveTodo, actionRestoreTodo} from '../../store/actions';
-import {Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList} from "../../components";
+import {Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList, EditForm} from "../../components";
 
 class App extends Component {
     render() {
@@ -53,6 +53,7 @@ class App extends Component {
                     removeTodo={this.props.removeTodo}
                     restoreTodo={this.props.restoreTodo}
                 />
+                <EditForm />
                 {
                     this.props.modalWindow.status && <ModalWindow data={modalWindowData} toCloseModalWindow={this.props.toCloseModalWindow}/>
                 }

@@ -1,0 +1,17 @@
+.btnEditForm {
+    width: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 3px;
+    border: none;
+    background-color: #49BBEE;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.btnEditForm:hover {
+    background-color: #3B7BEE;
+    color: #fff;
+}
