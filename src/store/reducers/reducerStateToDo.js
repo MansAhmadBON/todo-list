@@ -1,6 +1,6 @@
 import {ADD_NEW_TODO, TODO_DONE, TODO_DELETE, PREPARATION_FOR_EDIT_TODO, REMOVE_TODO, RESTORE_TODO, SET_EDIT_TODO} from '../../constants';
 
-const initialState = {
+const initialState = (localStorage.getItem('todosStore')) ? JSON.parse(localStorage.getItem('todosStore')) : {
     activeToDo: [],
     doneToDo: [],
     deletedToDo: []

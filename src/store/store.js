@@ -3,6 +3,10 @@ import rootReducers from './reducers';
 
 const store = createStore(rootReducers);
 
-//store.subscribe(() => console.log('subscribe', store.getState()));
+store.subscribe(() => {
+    const todoStore = store.getState().stateToDos;
+    localStorage.clear();
+    localStorage.setItem('todosStore', JSON.stringify(todoStore));
+});
 
 export default store;
