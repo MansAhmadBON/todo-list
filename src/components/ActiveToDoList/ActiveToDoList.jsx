@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ActiveToDoList.module.css'
 import {LiActiveToDo} from './components/index'
 
-function ActiveToDoList(props) {
+const ActiveToDoList = React.memo(function ActiveToDoList(props) {
     return (
         <div className={styles.ActiveToDoList}>
             <h2 className={styles.titleSection}>Active Todos</h2>
@@ -15,6 +15,6 @@ function ActiveToDoList(props) {
             </ul>
         </div>
     )
-}
+});
 
 export default ActiveToDoList;

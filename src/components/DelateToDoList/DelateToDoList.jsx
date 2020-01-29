@@ -2,7 +2,7 @@ import React from "react";
 import styles from './DelateToDoList.module.css';
 import {LiDeleteToDo} from "./Compoentns";
 
-function DelateToDoList(props) {
+const DelateToDoList = React.memo(function DelateToDoList(props) {
     return (
         <div className={styles.DeleteToDoList}>
             <div>
@@ -17,6 +17,6 @@ function DelateToDoList(props) {
             </ul>
         </div>
     )
-}
+});
 
 export default DelateToDoList;

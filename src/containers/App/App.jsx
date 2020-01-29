@@ -5,8 +5,6 @@ import {Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList, EditFor
 
 class App extends Component {
     render() {
-        console.log('todos:', this.props.todos);
-
         const idToDo = Number(this.props.modalWindow.id);
         const modalWindowData = [];
 
