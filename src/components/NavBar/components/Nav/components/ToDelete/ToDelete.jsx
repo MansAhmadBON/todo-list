@@ -1,8 +1,9 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 function ToDelete() {
     return (
-        <a href="#">Delete</a>
+        <NavLink to="/delete">Delete</NavLink>
     )
 }
 

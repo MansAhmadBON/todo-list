@@ -1,8 +1,9 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 function ToCompleted() {
     return (
-        <a href="#">Completed</a>
+        <NavLink to="/completed">Completed</NavLink>
     )
 }
 

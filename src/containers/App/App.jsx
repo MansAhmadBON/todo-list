@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { Switch, Route } from 'react-router-dom'
 import {actionAddCurrentToDoName, actionAddEditTodoName, actionAddCurrentToDoDescr, actionAddEditTodoDescr, actionSetEditTodo, actionCloseEditForm, actionAddNewTodo, actionClearInputDescr, actionClearInputName, actionOpenModalWindow, actionToCloseModalWindow, actionToDoDone, actionPreparationEditToDo, actionDeleteTodo, actionRemoveTodo, actionRestoreTodo, actionOpenEditForm} from '../../store/actions';
 import {Header, Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList, EditForm, NavBar} from "../../components";
 import styles from './App.module.css'
@@ -34,25 +35,29 @@ class App extends Component {
                     clearInputDescr={this.props.clearInputDescr}
                 />
                 <NavBar />
-                <ActiveToDoList
-                    activeTodos={this.props.activeTodos}
-                    openModalWindow={this.props.openModalWindow}
-                    toDoDone={this.props.toDoDone}
-                    deleteTodo={this.props.deleteTodo}
-                    openEditForm={this.props.openEditForm}
-                />
-                <DoneToDoList
-                    doneTodos={this.props.doneTodos}
-                    openModalWindow={this.props.openModalWindow}
-                    removeTodo={this.props.removeTodo}
-                />
-                <DelateToDoList
-                    deleteTodos={this.props.deleteTodos}
-                    openModalWindow={this.props.openModalWindow}
-                    removeTodo={this.props.removeTodo}
-                    restoreTodo={this.props.restoreTodo}
-                />
-
+                <Switch>
+                    <Route path="/active" render={() => <ActiveToDoList
+                                                                    activeTodos={this.props.activeTodos}
+                                                                    openModalWindow={this.props.openModalWindow}
+                                                                    toDoDone={this.props.toDoDone}
+                                                                    deleteTodo={this.props.deleteTodo}
+                                                                    openEditForm={this.props.openEditForm}
+                                                        />}
+                    />
+                    <Route path="/completed" render={() => <DoneToDoList
+                                                                doneTodos={this.props.doneTodos}
+                                                                openModalWindow={this.props.openModalWindow}
+                                                                removeTodo={this.props.removeTodo}
+                                                    />}
+                    />
+                    <Route path="/delete" render={() => <DelateToDoList
+                                                                deleteTodos={this.props.deleteTodos}
+                                                                openModalWindow={this.props.openModalWindow}
+                                                                removeTodo={this.props.removeTodo}
+                                                                restoreTodo={this.props.restoreTodo}
+                                                  />}
+                    />
+                </Switch>
                 {
                     this.props.modalWindow.status && <ModalWindow data={modalWindowData} toCloseModalWindow={this.props.toCloseModalWindow}/>
                 }

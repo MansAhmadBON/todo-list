@@ -1,8 +1,9 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 function ToActive() {
     return (
-        <a href="#">Active</a>
+        <NavLink to="/active">Active</NavLink>
     )
 }
 

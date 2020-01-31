@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './Nav.module.css';
-import {ToActive, ToCompleted, ToDelete} from './components';
+import {ToActive, ToCompleted, ToDelete, ToHome} from './components';
 
 function Nav() {
     return (
@@ -8,6 +8,7 @@ function Nav() {
             <ToActive />
             <ToCompleted />
             <ToDelete />
+            <ToHome />
         </div>
     )
 }
