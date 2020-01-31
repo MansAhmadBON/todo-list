@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {actionAddCurrentToDoName, actionAddEditTodoName, actionAddCurrentToDoDescr, actionAddEditTodoDescr, actionSetEditTodo, actionCloseEditForm, actionAddNewTodo, actionClearInputDescr, actionClearInputName, actionOpenModalWindow, actionToCloseModalWindow, actionToDoDone, actionPreparationEditToDo, actionDeleteTodo, actionRemoveTodo, actionRestoreTodo, actionOpenEditForm} from '../../store/actions';
-import {Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList, EditForm} from "../../components";
+import {Header, Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList, EditForm, NavBar} from "../../components";
+import styles from './App.module.css'
 
 class App extends Component {
     render() {
@@ -21,7 +22,8 @@ class App extends Component {
         }
 
         return (
-            <div>
+            <div className={styles.app}>
+                <Header />
                 <Form
                     todoName={this.props.todoName}
                     addCurrentToDoName={this.props.addCurrentToDoName}
@@ -31,6 +33,7 @@ class App extends Component {
                     clearInputName={this.props.clearInputName}
                     clearInputDescr={this.props.clearInputDescr}
                 />
+                <NavBar />
                 <ActiveToDoList
                     activeTodos={this.props.activeTodos}
                     openModalWindow={this.props.openModalWindow}
