@@ -6,32 +6,15 @@ import {Input, TextArea, Button} from "./Components";
 function Form(props) {
     const handleSubmit = e => e.preventDefault();
 
-    const addCurrentTodoName = e => {
-        props.addCurrentToDoName(e.target.value);
-    };
-
-    const addCurrentDescrTodo = e => {
-        props.addCurrentToDoDescr(e.target.value)
-    }
-
     return (
         <form onSubmit={e => handleSubmit(e)} className={styles.form}>
-            <TextField
-                label="ToDo Name"
-                variant="outlined"
-                className={styles.inputNameTodo}
-                onChange={e => addCurrentTodoName(e)}
+            <Input
+                addCurrentToDoName={props.addCurrentToDoName}
                 value={props.todoName}
             />
             <div className={styles.wrapTextArea}>
-                <TextField
-                    label="ToDo description"
-                    variant="outlined"
-                    className={styles.textAreaDescrTodo}
-                    multiline={true}
-                    rows={4}
-                    rowsMax={4}
-                    onChange={e => addCurrentDescrTodo(e)}
+                <TextArea
+                    addCurrentToDoDescr={props.addCurrentToDoDescr}
                     value={props.todoDescr}
                 />
             </div>
