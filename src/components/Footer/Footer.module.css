@@ -1,0 +1,17 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 50px;
+    background-color: #00caee;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+}
+
+.footerContent {
+    width: 450px;
+    display: flex;
+    justify-content: space-around;
+    text-transform: uppercase;
+}

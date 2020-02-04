@@ -9,3 +9,19 @@
     margin: 0 auto;
     padding: 20px;
 }
+
+.inputNameTodo {
+    width: 400px;
+}
+
+.textAreaDescrTodo {
+    width: 400px;
+}
+
+.wrapTextArea {
+    margin-top: 25px;
+}
+
+.wrapBtn {
+    margin-top: 25px;
+}

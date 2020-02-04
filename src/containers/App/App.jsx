@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Switch, Route } from 'react-router-dom'
 import {actionAddCurrentToDoName, actionAddEditTodoName, actionAddCurrentToDoDescr, actionAddEditTodoDescr, actionSetEditTodo, actionCloseEditForm, actionAddNewTodo, actionClearInputDescr, actionClearInputName, actionOpenModalWindow, actionToCloseModalWindow, actionToDoDone, actionPreparationEditToDo, actionDeleteTodo, actionRemoveTodo, actionRestoreTodo, actionOpenEditForm} from '../../store/actions';
-import {Header, Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList, EditForm, NavBar} from "../../components";
+import {Header, Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList, EditForm, NavBar, Footer} from "../../components";
 import styles from './App.module.css'
 
 class App extends Component {
@@ -34,7 +34,7 @@ class App extends Component {
                     clearInputName={this.props.clearInputName}
                     clearInputDescr={this.props.clearInputDescr}
                 />
-                <NavBar />
+                <NavBar/>
                 <Switch>
                     <Route path="/active" render={() => <ActiveToDoList
                                                                     activeTodos={this.props.activeTodos}
@@ -58,6 +58,11 @@ class App extends Component {
                                                   />}
                     />
                 </Switch>
+                <Footer
+                    activeTodos={this.props.activeTodos}
+                    doneTodos={this.props.doneTodos}
+                    deleteTodos={this.props.deleteTodos}
+                />
                 {
                     this.props.modalWindow.status && <ModalWindow data={modalWindowData} toCloseModalWindow={this.props.toCloseModalWindow}/>
                 }

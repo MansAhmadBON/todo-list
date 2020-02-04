@@ -1,0 +1,11 @@
+.link {
+    color: #e3e3e3;
+    text-decoration: none;
+}
+
+
+.active {
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}

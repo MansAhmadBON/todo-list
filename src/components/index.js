@@ -6,6 +6,8 @@ import DelateToDoList from "./DelateToDoList";
 import EditForm from "./EditForm";
 import NavBar from "./NavBar";
 import Header from "./Header/Header";
+import Footer from "./Footer";
 
 
-export {Header, Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList, EditForm, NavBar};
+
+export {Header, Form, ActiveToDoList, ModalWindow, DoneToDoList, DelateToDoList, EditForm, NavBar, Footer};
